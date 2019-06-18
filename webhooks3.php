@@ -1,4 +1,4 @@
- <?php // callback.php
+<?php // callback.php
 
 require "vendor/autoload.php";
 require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
@@ -25,6 +25,25 @@ if($message == "สวัสดี"){
    $arrayPostData['messages'][1]['packageId'] = "2";
    $arrayPostData['messages'][1]['stickerId'] = "34";
    pushMsg($arrayHeader,$arrayPostData);
+}
+ #ตัวอย่าง Message Type "Sticker"
+ else if($message == "ฝันดี"){
+	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+	$arrayPostData['messages'][0]['type'] = "sticker";
+	$arrayPostData['messages'][0]['packageId'] = "2";
+	$arrayPostData['messages'][0]['stickerId'] = "46";
+	replyMsg($arrayHeader,$arrayPostData);
+}
+
+#ตัวอย่าง Message Type "Text + Sticker ใน 1 ครั้ง"
+else if($message == "ลาก่อน"){
+	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+	$arrayPostData['messages'][0]['type'] = "text";
+	$arrayPostData['messages'][0]['text'] = "อย่าทิ้งกันไป";
+	$arrayPostData['messages'][1]['type'] = "sticker";
+	$arrayPostData['messages'][1]['packageId'] = "1";
+	$arrayPostData['messages'][1]['stickerId'] = "131";
+	replyMsg($arrayHeader,$arrayPostData);
 }
 function pushMsg($arrayHeader,$arrayPostData){
    $strUrl = "https://api.line.me/v2/bot/message/push";
