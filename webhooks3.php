@@ -11,7 +11,7 @@ $content = file_get_contents('php://input');
 $arrayJson = json_decode($content, true);
 $arrayHeader = array();
 $arrayHeader[] = "Content-Type: application/json";
-$arrayHeader[] = "Authorization: Bearer {$accessToken}";
+$arrayHeader[] = "Authorization: Bearer {$access_token}";
 //รับข้อความจากผู้ใช้
 $message = $arrayJson['events'][0]['message']['text'];
 //รับ id ของผู้ใช้
