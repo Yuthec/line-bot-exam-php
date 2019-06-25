@@ -54,7 +54,7 @@ if($message == "สวัสดี"){
 	// $arrayPostData['messages'][0]['type'] = "sticker";
 	// $arrayPostData['messages'][0]['packageId'] = "2";
 	$arrayPostData['messages'][0]['type'] = "text";
-   $arrayPostData['messages'][0]['text'] = "$anward4";
+   $arrayPostData['messages'][0]['text'] = $anward4;
 }
 
 #ตัวอย่าง Message Type "Text + Sticker ใน 1 ครั้ง"
