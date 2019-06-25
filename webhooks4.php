@@ -5,7 +5,7 @@ require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 include_once 'connf.php';
 
 
-$access_token = 'Pp+X6o0DyjM2PpSwiAKEjG/a0OyuCvAJt8iJsnCfTfOoAekSTLZqE0iKaOj6rorVcvXhMocDivS8k57i6Zz9vTP+FlFwGoIdHvbpvZeHXP9XWmCECyEUKak0G+8HNRAIUfOObeeM1NsDnLVbwCPYVQdB04t89/1O/w1cDnyilFU=';
+$access_token = 'pbOSxaCoIAPj540OzubkcUoOkgumhHGSO7M4/0NqYjQ/9gCpxKtlE4Z3FyUvsdOFka6Z/6PEOM5t6OP+urobAXaoGZxNuCCFQJPXbN3gud9ed3QG2VHBLcoLt8tqnSxBo98xop7TNFp0ya1f5rT+XwdB04t89/1O/w1cDnyilFU=';
 
 // Get POST body content
 $content = file_get_contents('php://input');
@@ -36,6 +36,7 @@ $id = $arrayJson['events'][0]['source']['userId'];
 
                     foreach ($an as $wor)  ;
                     $anward4 = $wor['anward4'];
+
                     
 
 #ตัวอย่าง Message Type "Text + Sticker"
