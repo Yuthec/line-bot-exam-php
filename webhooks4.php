@@ -22,40 +22,21 @@ $id = $arrayJson['events'][0]['source']['userId'];
 
 
 
-              $pt = $pdo->prepare("SELECT(select concat(pname,' ',fname,' ',lname) from patient where hn = '$HN') as ptname,
-              (select year(CURDATE()) - year(birthday) from patient where hn = '$HN' ) as ptage,
-              (select name  from spclty where spclty = '$sp') as depart
-              ,(select ptt.name from patient p left join pttype ptt on p.pttype = ptt.pttype where hn = '$HN') as pttype
-              
-               ");
-                $pt->execute(array(1));
-                $respt = $pt->fetchAll(PDO::FETCH_ASSOC);
+           
 
 
-                    $doc = $pdo->prepare("SELECT (select an from an_stat a where a.dchdate is null and ward = '0004' )as anward4
+                    $an = $pdo->prepare("SELECT (select count(an) from an_stat a where a.dchdate is null and ward = '0004' )as anward4
                      ");
                    
-                    $doc->execute(array(1));
-                    $resdoc = $doc->fetchAll(PDO::FETCH_ASSOC);
-
-                    $doccon = $pdo->prepare("SELECT name as 'doccon' from doctor where code = '$docc'
-                     ");
-                   
-                    $doccon->execute(array(1));
-                    $resdoccon = $doccon->fetchAll(PDO::FETCH_ASSOC);
-
-                    $type = $pdo->prepare("SELECT  type from op_preop where spclty = '$dep' order by risk desc
-                     ");
-                   
-                    $type->execute(array(1));
-                    $restype = $type->fetchAll(PDO::FETCH_ASSOC);
+                    $an->execute();
+                    
                     
 
+                   
+
+                    foreach ($an as $wor)  ;
+                    $anward4 = $wor['anward4'];
                     
-
-                    foreach ($respt as $row)  ;
-                    $anward4 = $row['anward4'];
-
 
 #ตัวอย่าง Message Type "Text + Sticker"
 if($message == "สวัสดี"){
