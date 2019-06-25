@@ -3,6 +3,21 @@
 require "vendor/autoload.php";
 require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 
+include_once 'connf.php';
+
+
+$an = $pdo->prepare("SELECT (select count(an) from an_stat a where a.dchdate is null and ward = '0004' )as anward4
+");
+
+$an->execute();
+
+
+
+
+
+foreach ($an as $wor)  ;
+$anward4 = $wor['anward4'];
+
 $access_token = 'Pp+X6o0DyjM2PpSwiAKEjG/a0OyuCvAJt8iJsnCfTfOoAekSTLZqE0iKaOj6rorVcvXhMocDivS8k57i6Zz9vTP+FlFwGoIdHvbpvZeHXP9XWmCECyEUKak0G+8HNRAIUfOObeeM1NsDnLVbwCPYVQdB04t89/1O/w1cDnyilFU=';
 
 // Get POST body content
