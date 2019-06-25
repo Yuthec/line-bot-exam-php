@@ -42,12 +42,12 @@ if($message == "สวัสดี"){
    pushMsg($arrayHeader,$arrayPostData);
 }
  #ตัวอย่าง Message Type "Sticker"
- else if($message == "ฝันดี"){
-	 $arrayPostData['to'] = $id;
-	$arrayPostData['messages'][0]['type'] = "sticker";
-	$arrayPostData['messages'][0]['packageId'] = "2";
-	$arrayPostData['messages'][0]['stickerId'] = "46";
-	pushMsg($arrayHeader,$arrayPostData);
+ else if($message == "ยอดเตียง"){
+   $arrayPostData['to'] = $id;
+  // $arrayPostData['messages'][0]['type'] = "sticker";
+  // $arrayPostData['messages'][0]['packageId'] = "2";
+  $arrayPostData['messages'][0]['type'] = "text";
+  $arrayPostData['messages'][0]['text'] = $anward4;
 }
 
 #ตัวอย่าง Message Type "Text + Sticker ใน 1 ครั้ง"
