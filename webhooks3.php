@@ -3,6 +3,20 @@
 require "vendor/autoload.php";
 require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 
+include_once 'connf.php';
+
+
+$an = $pdo->prepare("SELECT (select count(an) from an_stat a where a.dchdate is null and ward = '0004' )as anward4
+");
+
+$an->execute();
+
+
+
+
+
+foreach ($an as $wor)  ;
+$anward4 = $wor['anward4'];
 
 $access_token = 'Pp+X6o0DyjM2PpSwiAKEjG/a0OyuCvAJt8iJsnCfTfOoAekSTLZqE0iKaOj6rorVcvXhMocDivS8k57i6Zz9vTP+FlFwGoIdHvbpvZeHXP9XWmCECyEUKak0G+8HNRAIUfOObeeM1NsDnLVbwCPYVQdB04t89/1O/w1cDnyilFU=';
 
@@ -17,6 +31,24 @@ $arrayHeader[] = "Authorization: Bearer {$access_token}";
 $message = $arrayJson['events'][0]['message']['text'];
 //รับ id ของผู้ใช้
 $id = $arrayJson['events'][0]['source']['userId'];
+
+
+
+
+$an = $pdo->prepare("SELECT (select count(an) from an_stat a where a.dchdate is null and ward = '0004' )as anward4
+");
+
+$an->execute();
+
+
+
+
+
+foreach ($an as $wor)  ;
+$anward4 = $wor['anward4'];
+
+
+
 #ตัวอย่าง Message Type "Text + Sticker"
 if($message == "สวัสดี"){
    $arrayPostData['to'] = $id;
@@ -27,7 +59,15 @@ if($message == "สวัสดี"){
    $arrayPostData['messages'][1]['stickerId'] = "34";
    pushMsg($arrayHeader,$arrayPostData);
 }
- 
+ #ตัวอย่าง Message Type "Sticker"
+ else if($message == "ยอดเตียง"){
+   $arrayPostData['to'] = $id;
+  // $arrayPostData['messages'][0]['type'] = "sticker";
+  // $arrayPostData['messages'][0]['packageId'] = "2";
+  $arrayPostData['messages'][0]['type'] = "text";
+  $arrayPostData['messages'][0]['text'] = $anward4;
+  pushMsg($arrayHeader,$arrayPostData);
+}
 
 #ตัวอย่าง Message Type "Text + Sticker ใน 1 ครั้ง"
 else if($message == "ลาก่อน"){
