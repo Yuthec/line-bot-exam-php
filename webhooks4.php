@@ -3,7 +3,7 @@
 require "vendor/autoload.php";
 require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 include_once 'connf.php';
-
+include '../asset/basic_function.php';
 
 $access_token = 'Pp+X6o0DyjM2PpSwiAKEjG/a0OyuCvAJt8iJsnCfTfOoAekSTLZqE0iKaOj6rorVcvXhMocDivS8k57i6Zz9vTP+FlFwGoIdHvbpvZeHXP9XWmCECyEUKak0G+8HNRAIUfOObeeM1NsDnLVbwCPYVQdB04t89/1O/w1cDnyilFU=';
 
@@ -51,9 +51,10 @@ $id = $arrayJson['events'][0]['source']['userId'];
                     $restype = $type->fetchAll(PDO::FETCH_ASSOC);
                     
 
-                    $anward4 = $rowanward4;
+                    
 
-                    foreach ($respt as $row)  
+                    foreach ($respt as $row)  ;
+                    $anward4 = $row['anward4'];
 
 
 #ตัวอย่าง Message Type "Text + Sticker"
